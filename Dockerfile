@@ -11,6 +11,7 @@ RUN apt-get update \
     && apt-get install -qq --no-install-recommends -y build-essential ca-certificates cmake cuda-core-9-0 git cuda-cudart-dev-9-0 libhwloc-dev libmicrohttpd-dev libssl-dev \
     && git clone $GIT_REPOSITORY \
     && cd /xmr-stak \
+    && ln -s /usr/local/cuda/libnvrtc.so .//usr/lib/x86_64-linux-gnu/libnvrtc.so \
     && cmake ${XMRSTAK_CMAKE_FLAGS} . \
     && make \
     && cd - \
